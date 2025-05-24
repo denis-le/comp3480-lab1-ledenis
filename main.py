@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
+from datetime import datetime
 app = FastAPI()
 
 # Simple Route
@@ -31,5 +32,14 @@ class PersonInput(BaseModel):
 @app.post("/person")
 async def person_age(person: PersonInput):
     return {"message": f"{person.name}, You are {person.current_year - person.birth_year} years old!"}
+
+@app.get("/year")
+async def year():
+    return {"message": f"The year is now {datetime.now().year}!"}
+
+@app.get("/time")
+async def time():
+    return {"message": f"The time is now {datetime.now().time()}!"}
+
 
 
