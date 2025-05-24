@@ -41,6 +41,10 @@ async def year():
 async def time():
     return {"message": f"The time is now {datetime.now().time()}!"}
 
+@app.get("/day")
+async def day():
+    return {"message": f"The day is now {datetime.now().strftime('%A')}!"}
+
 @app.get("/name")
 async def name(names: str):
     return {"message": f"Hello {names}!"}
