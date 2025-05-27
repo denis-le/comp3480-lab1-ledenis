@@ -42,3 +42,15 @@ uvicorn main:app --port 8080 --reload
 ```
 
 This will start the service, which can then be accessed on [http://localhost:8080/](http://localhost:8080/)
+
+### Routes
+* `GET /` - Root route
+* `GET /about` - About the service
+* `GET /year` - Current year
+* `GET /time` - Current time
+* `GET /day` - Current day of the week
+* `GET /age?birth_year=YYYY&current_year=YYYY` - Age via **query** string
+* `GET /age/{birth_year}/{current_year}` - Age via **path** parameters
+* `POST /person` - Accepts a JSON object with name, birth year, and current year, returns age
+* `GET /name?names=YourName` - Greeting via **query** string
+* `GET /name/YourName` - Greeting via **path** parameter
