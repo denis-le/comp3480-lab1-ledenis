@@ -67,9 +67,11 @@ async def read_items(user_email: Optional[str] = Header(None), user_role: Option
     print(user_email)
     print(user_role)
     print(device_type)
-    return {"user_email": user_email, "user_val": user_role, "device_type": device_type}
+    return {"user-email": user_email, "user-role": user_role, "device-type": device_type}
 
 # Cookie Parameters for light or dark theme
 @app.get("/theme")
 async def readCookie(theme: Optional[str] = Cookie(None)):
+    print("Cookies received:")
+    print(theme)
     return {"theme": theme}

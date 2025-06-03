@@ -119,3 +119,37 @@ class TestCases(unittest.TestCase):
         self.assertEqual(response.json(), {
             "message": "Hello Denis!",
         })
+
+    def test_getHeaders(self):
+        url = "http://localhost:8080/headers/"
+        headers = {
+            "Content-Type": "application/json",
+            "X-Custom-Header": "CustomValue",
+            "user-email": "demo@example.com",
+            "user-role": "admin",
+            "device-type": "desktop"
+        }
+        response = requests.get(url=url, headers=headers)
+
+        print("Status code:", response.status_code)
+        print("Response Body:", response.json())
+
+        self.assertEqual(200, response.status_code)
+        self.assertEqual(response.json(), {
+            "user-email": "demo@example.com",
+            "user-role": "admin",
+            "device-type": "desktop"
+        })
+
+    def test_getTheme(self):
+        url = "http://localhost:8080/theme/"
+        cookies = {
+            "theme": "dark"
+        }
+        response = requests.get(url=url, cookies=cookies)
+
+        print("Status code: ", response.status_code)
+        print("Response Body: ", response.json())
+
+        self.assertEqual(200, response.status_code)
+        self.assertEqual(response.json(), {"theme": "dark"})
