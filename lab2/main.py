@@ -1,6 +1,7 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Header, Cookie
 from pydantic import BaseModel
 from datetime import datetime
+from typing import Optional
 app = FastAPI()
 
 # Root
@@ -58,4 +59,17 @@ async def name(names: str):
 async def name(names: str):
     return {"message": f"Hello {names}!"}
 
+# Header Parameters
+@app.get("/headers/")
+async def read_items(user_email: Optional[str] = Header(None), user_role: Optional[str] = Header(None),
+                     device_type: Optional[str] = Header(None)):
+    print("Headers received:")
+    print(user_email)
+    print(user_role)
+    print(device_type)
+    return {"user_email": user_email, "user_val": user_role, "device_type": device_type}
 
+# Cookie Parameters for light or dark theme
+@app.get("/theme")
+async def readCookie(theme: Optional[str] = Cookie(None)):
+    return {"theme": theme}
