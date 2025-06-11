@@ -1,18 +1,3 @@
-<!-- You should submit the following:
-A file containing the following
-The name of your GIT Repo which is shared with the instructor
-The Git Repo should be the Repo used for Lab 1, create a folder in that repo called Lab 3 and place all of the submission material there
-Your GIT Repo should contain:
-Your source
-Readme file
-Introduction To your project
-Description of your project
-Design of your project
-Detailed instructions on how to run your project
-Screen Shots of your working project in this file
-Presentation to Instructor
-2-3 minute demonstration of your project -->
-
 # Lab 3
 
 ## Objective
@@ -23,14 +8,45 @@ The objective of this lab is to create a Node.js service using Express with the 
     * 1 route should have header parameters
     * 1 route should have body inputs
 
-## Description to the Project
+## Description of the Project
+The project implements the following endpoints:
+* `/`: Returns a basic "Hello World" Message
+* `/about`: Describes the app
+* `/year`: Returns current year
+* `/time`: Returns current time
+* `/day`: Returns the day of the week
+* `/greet`: Returns a greeting based on a query parameter name
+* `/age`: Returns age given a query parameter birth year
+* `/add`: Calculates and returns sum of two numbers passed by query parameters `x` and `y`
+* `/multiply`: Calculates and returns product of two numbers passed by query parameters `x` and `y`
+* `/convert`: Converts inches to centimeters given query parameter `inch`
+* `/headers`: Returns user info sent via headers
+* `/person`: Accepts a POST request with a JSON body and responds with a message using the body input
+
 
 ## Design of the Project
+The lab is done using Express and is organized in a single file (`app.js`). The endpoints are designed to be simple 
+while fulfilling the requirements of the lab. The service also uses JavaScript's `Date` object to get the current date and time.
 
 ## How to run the Project
 
 ### Prerequisites
+* Node.js
+* npm (comes with Node.js)
+* Express (used for routing)
+
+#### Install Dependencies
+```bash
+npm install express
+```
 
 ### Running the Service
+To start the service, run this command from the project's directory:
 
-### Routes
+```bash
+node app.js
+```
+
+This will start the service, which can then be accessed on [http://localhost:8080/](http://localhost:8080/)
+
+The routes can then be accessed and tested on an API testing app such as Postman

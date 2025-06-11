@@ -57,9 +57,9 @@ app.get('/add', (req, res) => {
 app.get('/multiply', (req, res) => {
     const x = parseFloat(req.query.x);
     const y = parseFloat(req.query.y);
-    let sum = x * y;
+    let product = x * y;
 
-    res.send(`The product of the two numbers is ${sum}`);
+    res.send(`The product of the two numbers is ${product}`);
 })
 
 app.get('/convert', (req, res) => {
