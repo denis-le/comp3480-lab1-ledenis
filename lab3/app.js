@@ -20,8 +20,11 @@ app.get('/year', (req, res) => {
 })
 
 app.get('/time', (req, res) => {
-    const time = date.getTime();
-    res.send(`The time is now ${time}`);
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const seconds = date.getSeconds();
+    console.log(`${hours}:${minutes}:${seconds}`);
+    res.send(`The time is now ${hours}:${minutes}:${seconds}`);
 })
 
 app.get('/day', (req, res) => {
