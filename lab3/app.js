@@ -1,9 +1,10 @@
 const express = require('express');
-const cookieParser = require('cookie-parser');
 const app = express()
 const port = 8080;
 
 const date = new Date();
+
+app.use(express.json());
 
 app.get('/', (req, res) => {
     res.send('Hello World!');
@@ -83,15 +84,19 @@ app.get('/headers', (req, res) => {
     });
 })
 
-app.use(cookieParser());
+app.post('/person', (req, res) => {
+    const person = req.body;
 
-app.get('/theme', (req, res) => {
-    const theme = req.cookies.theme;
-    console.log(theme);
-    
-    res.json({theme});
-})
+    console.log('Name: ', person.name);
+    console.log('Age: ', person.age);
 
-app.listen(port, () => {
-    console.log(`Lab 3 App listening on port ${port}`);
-})
+    res.send(`${person.name}, you are ${person.age} years old!`);
+});
+
+
+app.listen(port, (error) => {
+    if(!error)
+        console.log("Server is Successfully running")
+    else
+        console.log("Error Occured")
+});
