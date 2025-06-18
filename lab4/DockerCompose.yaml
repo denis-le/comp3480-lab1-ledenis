@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  lab4:
+    image: lab4:latest
+    container_name: lab4
+    restart: always
+    ports:
+      - "8080:8080"
