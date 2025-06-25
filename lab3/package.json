@@ -1,7 +1,7 @@
 {
   "name": "lab3",
   "version": "1.0.0",
-  "description": "",
+  "description": "## Objective The objective of this lab is to create a Node.js service using Express with the following features: * 12 Routes     * 5 routes should return HTML content     * 5 routes should have query parameters     * 1 route should have header parameters     * 1 route should have body inputs",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,5 +11,6 @@
   "dependencies": {
     "cookie-parser": "^1.4.7",
     "express": "^5.1.0"
-  }
+  },
+  "keywords": []
 }
