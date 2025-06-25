@@ -35,6 +35,12 @@ while fulfilling the requirements of the lab. The service also uses JavaScript's
 * npm (comes with Node.js)
 * Express (used for routing)
 
+### Initialize npm
+```bash
+cd lab3/
+npm init -y
+```
+
 #### Install Dependencies
 ```bash
 npm install express
