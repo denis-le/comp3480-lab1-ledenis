@@ -9,3 +9,5 @@
 [Lab 4 README](/lab4/README.md)
 
 [Lab 5 README](/lab5/README.md)
+
+[Lab 6 README](/lab6/README.md)
