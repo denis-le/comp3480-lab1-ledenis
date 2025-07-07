@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  lab7fastapi:
+    image: lab7fastapi:latest
+    container_name: lab7fastapi
+    restart: always
+    ports:
+      - "8080:8080"
+    
+  db:
+    image: mysql
+    container_name: mysql-container
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=lab6password
+    ports:
+      - "3306:3306"
+    volumes:
+      - lab6:/var/lib/mysql
+volumes:
+  lab6:
