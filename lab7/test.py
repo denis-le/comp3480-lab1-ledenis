@@ -209,7 +209,7 @@ class TestCases(unittest.TestCase):
         if len(result) > 0:
             first_row = result[0]
             self.assertIsInstance(first_row, tuple, "Each row should be a tuple")
-            self.assertEqual(len(first_row), 3, "Each product row should have 3 columns")
+            self.assertEqual(len(first_row), 8, "Each product row should have 8 columns")
 
     def test_showProductCategory(self):
         result = execute_query("SELECT product_name, category_name "
