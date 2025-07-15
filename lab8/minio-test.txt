@@ -1,0 +1,1 @@
+This is a sample text to test the functionality of the MinIO service running in Docker

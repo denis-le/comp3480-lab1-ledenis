@@ -1,0 +1,51 @@
+services:
+  minio:
+    image: minio/minio
+    container_name: minio
+    restart: always
+    environment:
+      MINIO_ROOT_USER: lab8user
+      MINIO_ROOT_PASSWORD: lab8password
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - minio-data:/data
+    command: server /data --console-address ":9001"
+  postfix:
+    image: boky/postfix
+    container_name: postfix
+    restart: always
+    environment:
+      - ALLOW_EMPTY_SENDER_DOMAINS=true
+    ports:
+      - "1587:587"
+    volumes:
+      - postfix-data:/var/spool/postfix
+  redis:
+    image: redis
+    container_name: redis
+    restart: always
+    ports:
+      - "6379:6379"
+  lab7fastapi:
+    image: lab8fastapi:latest
+    container_name: lab8fastapi
+    restart: always
+    ports:
+      - "8080:8080"
+  db:
+    image: mysql
+    container_name: mysql-container
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=lab6password
+    ports:
+      - "3306:3306"
+    volumes:
+      - lab6:/var/lib/mysql
+
+volumes:
+  minio-data:
+  postfix-data:
+  lab6:
