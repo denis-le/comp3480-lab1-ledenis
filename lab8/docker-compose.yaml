@@ -28,6 +28,8 @@ services:
     restart: always
     ports:
       - "6379:6379"
+    volumes:
+      - redis-data:/data
   lab7fastapi:
     image: lab8fastapi:latest
     container_name: lab8fastapi
@@ -48,4 +50,5 @@ services:
 volumes:
   minio-data:
   postfix-data:
+  redis-data:
   lab6:

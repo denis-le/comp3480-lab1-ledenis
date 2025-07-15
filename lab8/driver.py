@@ -202,12 +202,7 @@ def send_email_with_postfix():
 def connect_to_redis():
     try:
         redis_client = redis.Redis(host='localhost', port=6379, db=0)
-        print("Successfully connected to Redis server!")
-        # Example: Set and get a value
-        redis_client.set('test_key', 'test_value')
-        value = redis_client.get('test_key')
-        print(f"Value: {value}\n")
-
+        print("Successfully connected to Redis server!\n")
         return redis_client
 
     except Exception as err:
@@ -371,6 +366,11 @@ def main():
             case "4":
                 send_email_with_postfix()
             case "5":
-                connect_to_redis()
+                redis_client = connect_to_redis()
+                # Example: Set and get a value
+                key = input("Enter a key: ")
+                value = input("Enter a value: ")
+                redis_client.set(key, value)
+                print(f"Key: {key}, Value: {redis_client.get(key)}\n")
 
 main()
