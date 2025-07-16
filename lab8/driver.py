@@ -221,7 +221,7 @@ def main():
         ]
         for option in options:
             print(option)
-        service = input("\nFastAPI or Queries: ")
+        service = input("\nSelect Service: ")
         match service:
             case "0":
                 exit()
